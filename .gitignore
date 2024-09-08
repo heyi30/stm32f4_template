@@ -1,2 +1,2 @@
-build/  # compiled files
-.vscode/  # vscode settings
+.vscode/
+build/

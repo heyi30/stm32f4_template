@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "@CMAKE_PROJECT_NAME@ Debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "@PROJ_ELF_PATH@",
+            "request": "attach",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": ["@OPENOCD_CFG@"],
+
+            "device": "STM32F407IGT6",
+            "interface": "swd",
+            "svdFile": "@OPENOCD_DIR@/stm32f407.svd",
+            "runToEntryPoint": "main",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4
+            }
+        }
+    ]
+}

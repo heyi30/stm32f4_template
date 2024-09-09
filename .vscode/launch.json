@@ -1,17 +1,17 @@
 {
     "configurations": [
         {
-            "name": "@CMAKE_PROJECT_NAME@ Debug",
+            "name": "template Debug",
             "cwd": "${workspaceRoot}",
-            "executable": "@PROJ_ELF_PATH@",
+            "executable": "${workspaceFolder}/build/template.elf",
             "request": "attach",
             "type": "cortex-debug",
             "servertype": "openocd",
-            "configFiles": ["@OPENOCD_CFG@"],
+            "configFiles": ["${workspaceFolder}/openocd/openocd.cfg"],
 
             "device": "STM32F407IGT6",
             "interface": "swd",
-            "svdFile": "@OPENOCD_DIR@/stm32f407.svd",
+            "svdFile": "${workspaceFolder}/openocd/stm32f407.svd",
             "runToEntryPoint": "main",
             "liveWatch": {
                 "enabled": true,

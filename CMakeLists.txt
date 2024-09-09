@@ -83,9 +83,5 @@ add_erase_and_reset()
 # 调用 flash_target 函数
 flash_target()
 
-# Add vscode cortex-debug functions
-include(${CMAKE_SOURCE_DIR}/openocd/vscode-debug.cmake)
-
-vscode_debug()
 
 

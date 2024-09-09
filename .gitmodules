@@ -1,0 +1,3 @@
+[submodule "irobotEC"]
+	path = irobotEC
+	url = https://github.com/IRobot-EC-2024/irobotEC.git

@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build",
+        "type": "shell",
+        "command": "cd build && make",
+        "args": [],
+        "problemMatcher": "$gcc",
+        "group": "build",
+        "detail": "编译源码"
+      },
+      {
+        "label": "Load",
+        "type": "shell",
+        "command": "openocd",
+        "args": [
+          "-f",
+          "${workspaceFolder}/openocd/openocd.cfg",
+          "-c",
+          "program ${workspaceFolder}/build/template.bin 0x08000000 verify reset exit"
+        ],
+        "dependsOn": [
+          "Build"
+        ],
+        "detail": "下载固件"
+      }
+    ]
+  }

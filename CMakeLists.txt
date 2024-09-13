@@ -71,16 +71,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 
 # Convert ELF to BIN for flashing
 add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_OBJCOPY} -O binary ${CMAKE_PROJECT_NAME}.elf ${CMAKE_PROJECT_NAME}.bin
+        COMMAND ${CMAKE_OBJCOPY} -O binary ${CMAKE_PROJECT_NAME}.elf program.bin
         DEPENDS ${CMAKE_PROJECT_NAME}
         COMMENT "Converting ELF to BIN"
 )
-
-# Add openocd functions
-include(${CMAKE_SOURCE_DIR}/openocd/flash-target.cmake)
-
-# 调用 add_erase_and_reset 函数
-add_erase_and_reset()
-
-# 调用 flash_target 函数
-flash_target()

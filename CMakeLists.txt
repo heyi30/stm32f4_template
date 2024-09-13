@@ -10,8 +10,8 @@ cmake_minimum_required(VERSION 3.22)
 # Setup compiler settings
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_C_EXTENSIONS ON)
-
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Define the build type
 if (NOT CMAKE_BUILD_TYPE)
@@ -40,6 +40,9 @@ add_custom_target(ci DEPENDS ${CMAKE_PROJECT_NAME}) # for CI build testing
 
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
+
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs)
+add_subdirectory(${CMAKE_SOURCE_DIR}/src)
 
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
@@ -84,6 +87,3 @@ add_erase_and_reset()
 
 # 调用 flash_target 函数
 flash_target()
-
-add_subdirectory(${CMAKE_SOURCE_DIR}/libs)
-add_subdirectory(${CMAKE_SOURCE_DIR}/user)

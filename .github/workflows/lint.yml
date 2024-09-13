@@ -12,7 +12,7 @@ jobs:
           submodules: 'recursive'
       - uses: DoozyX/clang-format-lint-action@v0.18.1
         with:
-          source: './app'
+          source: './src'
           inplace: True
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:

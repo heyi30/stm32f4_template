@@ -66,7 +66,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
         stm32cubemx
 
         # Add user defined libraries
-        irobotEC
+        ${PROJECT_NAME}_libs
 )
 
 # Convert ELF to BIN for flashing
@@ -85,10 +85,5 @@ add_erase_and_reset()
 # 调用 flash_target 函数
 flash_target()
 
-# enable irobotEC
-set(IROBOTEC_PLATFORM STM32)
-
-add_subdirectory(${CMAKE_SOURCE_DIR}/irobotEC)
-
-
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs)
 add_subdirectory(${CMAKE_SOURCE_DIR}/user)

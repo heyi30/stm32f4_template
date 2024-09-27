@@ -4,7 +4,7 @@
       {
         "label": "Build",
         "type": "shell",
-        "command": "cmake --preset=Debug && cmake --build build/Debug --target all",
+        "command": "cmake --preset=Debug ; cmake --build build/Debug --target all",
         "args": [],
         "problemMatcher": "$gcc",
         "group": "build",
@@ -16,9 +16,9 @@
         "command": "openocd",
         "args": [
           "-f",
-          "${workspaceFolder}/openocd/openocd.cfg",
+          "./openocd/openocd.cfg",
           "-c",
-          "program ${workspaceFolder}/build/Debug/template.elf verify reset exit"
+          "program ./build/Debug/template.elf verify reset exit"
         ],
         "dependsOn": [
           "Build"

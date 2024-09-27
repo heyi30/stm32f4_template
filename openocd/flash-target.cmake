@@ -26,7 +26,7 @@ endfunction()
 #####################################
 function(flash_target)
     add_custom_target(download
-        openocd ${OPENOCD_CFG_OPT} -c "program ${CMAKE_PROJECT_NAME}.bin 0x08000000 verify reset exit"
+        openocd ${OPENOCD_CFG_OPT} -c "program ${CMAKE_PROJECT_NAME}.elf verify reset exit"
         DEPENDS ${CMAKE_PROJECT_NAME}.bin
         COMMENT "Flashing ${PROJ_NAME}.bin to target"
     )

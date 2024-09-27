@@ -2,6 +2,9 @@
 
 ### How to flash and debug via vscode cortex-debug extension
 
+# 下载一定记得加上--recursive参数，否则不会下载子模块
+`git clone --recursive https://github.com/IRobot-EC-2024/stm32f4_template.git`
+
 **相关文件都在 ./openocd/ 下面**
 - 首先要有openocd工具，可以从官网下载安装。还要有cortex debug插件。
 - 主要有三个target可以使用：`cmake ..` `make`后可以使用

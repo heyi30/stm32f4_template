@@ -3,7 +3,7 @@
         {
             "name": "template Debug",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceFolder}/build/template.elf",
+            "executable": "${workspaceFolder}/build/Debug/template.elf",
             "request": "launch",    //注意必须使用launch，不能使用attach
             "preLaunchTask": "Load",   //防止忘了下载程序
             "type": "cortex-debug",

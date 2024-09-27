@@ -18,7 +18,7 @@
           "-f",
           "${workspaceFolder}/openocd/openocd.cfg",
           "-c",
-          "program ${workspaceFolder}/build/template.elf verify reset exit"
+          "program ${workspaceFolder}/build/Debug/template.elf verify reset exit"
         ],
         "dependsOn": [
           "Build"

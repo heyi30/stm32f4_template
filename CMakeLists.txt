@@ -69,9 +69,25 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
         ${PROJECT_NAME}_libs
 )
 
-# Convert ELF to BIN for flashing
-add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_OBJCOPY} -O binary ${CMAKE_PROJECT_NAME}.elf program.bin
-        DEPENDS ${CMAKE_PROJECT_NAME}
-        COMMENT "Converting ELF to BIN"
-)
+# # Convert ELF to BIN for flashing
+# add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
+#     COMMAND ${CMAKE_OBJCOPY} -O binary ${CMAKE_PROJECT_NAME}.elf ${CMAKE_PROJECT_NAME}.bin
+#     DEPENDS ${CMAKE_PROJECT_NAME}
+#     COMMENT "Converting ELF to BIN"
+# )
+
+# Add openocd functions
+include(${CMAKE_SOURCE_DIR}/openocd/flash-target.cmake)
+
+# 调用 add_erase_and_reset 函数
+add_erase_and_reset()
+
+# 调用 flash_target 函数
+flash_target()
+
+# enable irobotEC
+set(IROBOTEC_PLATFORM STM32)
+
+add_subdirectory(${CMAKE_SOURCE_DIR}/irobotEC)
+
+add_subdirectory(${CMAKE_SOURCE_DIR}/user)

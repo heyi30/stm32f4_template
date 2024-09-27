@@ -88,6 +88,3 @@ flash_target()
 # enable irobotEC
 set(IROBOTEC_PLATFORM STM32)
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/irobotEC)
-
-add_subdirectory(${CMAKE_SOURCE_DIR}/user)

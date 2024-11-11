@@ -38,7 +38,6 @@ add_custom_target(ci DEPENDS ${CMAKE_PROJECT_NAME}) # for CI build testing
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/libs)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src)
 
 # Link directories setup
@@ -66,15 +65,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
         stm32cubemx
 
         # Add user defined libraries
-        ${PROJECT_NAME}_libs
 )
-
-# # Convert ELF to BIN for flashing
-# add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
-#     COMMAND ${CMAKE_OBJCOPY} -O binary ${CMAKE_PROJECT_NAME}.elf ${CMAKE_PROJECT_NAME}.bin
-#     DEPENDS ${CMAKE_PROJECT_NAME}
-#     COMMENT "Converting ELF to BIN"
-# )
 
 # Add openocd functions
 include(${CMAKE_SOURCE_DIR}/openocd/flash-target.cmake)

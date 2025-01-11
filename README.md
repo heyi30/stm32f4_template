@@ -2,7 +2,7 @@
 
 ## 重要：clone时加`--recursive`参数！
 
-`git clone https://github.com/XDU-IRobot/stm32f4_template.git`
+`git clone --recursive https://github.com/XDU-IRobot/stm32f4_template.git`
 
 clone下来之后可以使用CLion和VSCode等等支持CMake的IDE进行开发。如果需要更改IO口配置，可以用CubeMX重新生成代码。
 

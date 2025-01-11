@@ -39,6 +39,8 @@ add_custom_target(ci DEPENDS ${CMAKE_PROJECT_NAME}) # for CI build testing
 add_subdirectory(cmake/stm32cubemx)
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/src)
+add_subdirectory(libs)
+add_subdirectory(openocd)
 
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
@@ -63,19 +65,6 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
 # Add linked libraries
 target_link_libraries(${CMAKE_PROJECT_NAME}
         stm32cubemx
-
+        rm
         # Add user defined libraries
 )
-
-# Add openocd functions
-include(${CMAKE_SOURCE_DIR}/openocd/flash-target.cmake)
-
-# 调用 add_erase_and_reset 函数
-add_erase_and_reset()
-
-# 调用 flash_target 函数
-flash_target()
-
-# enable irobotEC
-set(IROBOTEC_PLATFORM STM32)
-
